@@ -8,9 +8,15 @@ import os
 import secrets
 
 PARKING_SLOTS = {
-    "P01": {"plate": "KA01AB1234", "hours": 2, "rate": 20.0, "is_occupied": True},
-    "P02": {"plate": "TN07CD5678", "hours": 0, "rate": 20.0, "is_occupied": False},
-    "P03": {"plate": "MH02EF9012", "hours": 4, "rate": 30.0, "is_occupied": True},
+    "P01": {
+        "plate": "KA01AB1234", "hours": 2, "rate": 20.0, "is_occupied": True,
+    },
+    "P02": {
+        "plate": "TN07CD5678", "hours": 0, "rate": 20.0, "is_occupied": False,
+    },
+    "P03": {
+        "plate": "MH02EF9012", "hours": 4, "rate": 30.0, "is_occupied": True,
+    },
 }
 
 COLLECTIONS = {"total": 0.0}
@@ -20,7 +26,9 @@ def park_vehicle(slot_id, plate_no, hours_booked=1, entry_logs=None):
     """Park a vehicle and collect its fee; optionally append to caller logs."""
     if entry_logs is None:
         entry_logs = []
-    if isinstance(hours_booked, bool) or not isinstance(hours_booked, (int, float)):
+    if isinstance(hours_booked, bool) or not isinstance(
+        hours_booked, (int, float)
+    ):
         raise ValueError("Booked hours must be a positive finite number")
     if not math.isfinite(hours_booked) or hours_booked <= 0:
         raise ValueError("Booked hours must be a positive finite number")
@@ -56,7 +64,6 @@ def check_slot_availability(slot_id):
     return slot is not None and not slot["is_occupied"]
 
 
-
 def calculate_parking_fee(slot_id, surge_expr):
     """Evaluate bounded arithmetic using only numbers and base_rate.
 
@@ -69,8 +76,12 @@ def calculate_parking_fee(slot_id, surge_expr):
     expression = ast.parse(surge_expr, mode="eval")
     if sum(1 for _ in ast.walk(expression)) > 32:
         raise ValueError("Surge expression is too complex")
-    operations = {ast.Add: operator.add, ast.Sub: operator.sub,
-                  ast.Mult: operator.mul, ast.Div: operator.truediv}
+    operations = {
+        ast.Add: operator.add,
+        ast.Sub: operator.sub,
+        ast.Mult: operator.mul,
+        ast.Div: operator.truediv,
+    }
 
     def evaluate(node):
         """Interpret a whitelisted arithmetic node without executing code."""
@@ -79,13 +90,19 @@ def calculate_parking_fee(slot_id, surge_expr):
         elif isinstance(node, ast.Name) and node.id == "base_rate":
             value = base_rate
         elif isinstance(node, ast.BinOp) and type(node.op) in operations:
-            value = operations[type(node.op)](evaluate(node.left), evaluate(node.right))
-        elif isinstance(node, ast.UnaryOp) and isinstance(node.op, (ast.UAdd, ast.USub)):
+            value = operations[type(node.op)](
+                evaluate(node.left), evaluate(node.right)
+            )
+        elif isinstance(node, ast.UnaryOp) and isinstance(
+            node.op, (ast.UAdd, ast.USub)
+        ):
             value = evaluate(node.operand)
             if isinstance(node.op, ast.USub):
                 value = -value
         else:
-            raise ValueError("Only numbers, base_rate and arithmetic are allowed")
+            raise ValueError(
+                "Only numbers, base_rate and arithmetic are allowed"
+            )
         if not math.isfinite(value):
             raise ValueError("Fee calculation must remain finite")
         return value
@@ -124,7 +141,10 @@ def main():
     park_vehicle("P02", "DL03GH3456", 3)
     release_slot("P01")
     print("Is P02 available:", check_slot_availability("P02"))
-    print("Surge Parking Fee:", calculate_parking_fee("P03", "base_rate * 1.50"))
+    print(
+        "Surge Parking Fee:",
+        calculate_parking_fee("P03", "base_rate * 1.50"),
+    )
     print("Vehicle Hash:", generate_vehicle_hash("KA01AB1234"))
     print("Ticket PIN:", generate_ticket_pin())
     export_parking_manifest()

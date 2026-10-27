@@ -1,0 +1,14 @@
+{
+  "pylint": {
+    "command": "python -m pylint --persistent=n parking_lot_system.py",
+    "exit_code": 0
+  },
+  "bandit": {
+    "command": "python -m bandit -r parking_lot_system.py",
+    "exit_code": 0
+  },
+  "flake8": {
+    "command": "python -m flake8 parking_lot_system.py",
+    "exit_code": 0
+  }
+}

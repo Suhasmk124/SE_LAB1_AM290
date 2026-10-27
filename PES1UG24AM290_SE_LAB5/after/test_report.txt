@@ -1,0 +1,21 @@
+test_availability_and_summary (test_parking_lot_system.ParkingTests.test_availability_and_summary) ... ok
+test_default_logs_do_not_share_a_mutable_list (test_parking_lot_system.ParkingTests.test_default_logs_do_not_share_a_mutable_list) ... ok
+test_executable_or_unapproved_expressions_are_rejected (test_parking_lot_system.ParkingTests.test_executable_or_unapproved_expressions_are_rejected) ... ok
+test_fractional_hours_are_charged_and_logged (test_parking_lot_system.ParkingTests.test_fractional_hours_are_charged_and_logged) ... ok
+test_import_has_no_output_or_manifest_side_effect (test_parking_lot_system.ParkingTests.test_import_has_no_output_or_manifest_side_effect) ... ok
+test_invalid_fee_results_and_resource_limits (test_parking_lot_system.ParkingTests.test_invalid_fee_results_and_resource_limits) ... ok
+test_invalid_hours_do_not_mutate_state (test_parking_lot_system.ParkingTests.test_invalid_hours_do_not_mutate_state) ... ok
+test_invalid_plates_are_rejected (test_parking_lot_system.ParkingTests.test_invalid_plates_are_rejected) ... ok
+test_main_does_not_print_gate_secret (test_parking_lot_system.ParkingTests.test_main_does_not_print_gate_secret) ... ok
+test_manifest_filename_is_literal_text (test_parking_lot_system.ParkingTests.test_manifest_filename_is_literal_text) ... ok
+test_occupied_or_unknown_slots_do_not_collect_money (test_parking_lot_system.ParkingTests.test_occupied_or_unknown_slots_do_not_collect_money) ... ok
+test_parking_collects_fee_and_logs_entry (test_parking_lot_system.ParkingTests.test_parking_collects_fee_and_logs_entry) ... ok
+test_pin_range_and_secure_random_source (test_parking_lot_system.ParkingTests.test_pin_range_and_secure_random_source) ... ok
+test_release_resets_slot_and_unknown_returns_false (test_parking_lot_system.ParkingTests.test_release_resets_slot_and_unknown_returns_false) ... ok
+test_surge_arithmetic_preserves_original_example (test_parking_lot_system.ParkingTests.test_surge_arithmetic_preserves_original_example) ... ok
+test_vehicle_identifier_uses_sha256 (test_parking_lot_system.ParkingTests.test_vehicle_identifier_uses_sha256) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.322s
+
+OK
