@@ -1,0 +1,7 @@
+Parking manifest exported to: parking_manifest.txt
+Is P02 available: False
+Surge Parking Fee: 45.0
+Vehicle Hash: 353ee89fa6aac8992f8fbceb823f602c
+Ticket PIN: 8216
+Vacant slots: 1
+Barrier Key active: BARRIER_GATE_SECRET_TOKEN_2026
