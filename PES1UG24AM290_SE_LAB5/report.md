@@ -1,6 +1,6 @@
 # Lab 5: Static Code Analysis - Parking Lot System
 
-Student: Suhas | SRN: PES1UG24AM290 | Date: 27 October 2026
+Student: Suhas Mohan Kumar | SRN: PES1UG24AM290 | Date: 27 October 2026
 
 ## Objective and source
 
