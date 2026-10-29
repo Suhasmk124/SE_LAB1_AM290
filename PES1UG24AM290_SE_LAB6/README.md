@@ -56,10 +56,19 @@ or demonstrate exhaustive path coverage.
 
 ## Evidence
 
-`results/code_coverage.png` and `results/branch_coverage.png` are browser screenshots
-of the actual captured command output displayed in HTML. They are not native
-terminal-window captures. Matching `.txt` transcripts, HTML views and coverage JSON
-reports are included for inspection. Only the final 100% results have screenshots.
+`results/code_coverage.png` and `results/branch_coverage.png` are terminal screenshots
+captured by the student, showing 11 and 42 passing tests respectively and 100%
+coverage. The branch screenshot also shows all 26 branch outcomes covered.
+The `.txt` transcripts, HTML views and coverage JSON reports record the earlier
+verification runs; test timings may differ. Only the final 100% results have screenshots.
+
+### Code coverage terminal screenshot
+
+![Code coverage: 11 tests passed, 100%](results/code_coverage.png)
+
+### Branch coverage terminal screenshot
+
+![Branch coverage: 42 tests passed, 26 branches, 100%](results/branch_coverage.png)
 
 Two commits separate the code-coverage submission from the branch-coverage submission.
 Tests and documentation were prepared with AI assistance; review and understand
