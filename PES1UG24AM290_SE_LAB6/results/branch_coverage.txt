@@ -1,0 +1,13 @@
+PES1UG24AM290 | Lab 6 | Branch Coverage
+
+> python -m coverage run --branch --source=self_storage -m pytest -q BranchCoverageTest_self_storage_application.py
+..........................................                               [100%]
+42 passed in 0.09s
+
+> python -m coverage report -m
+Name              Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------
+self_storage.py      37      0     26      0   100%
+-------------------------------------------------------------
+TOTAL                37      0     26      0   100%
+
